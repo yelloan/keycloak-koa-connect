@@ -6,7 +6,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "prettier": "prettier --write '{src,test}/**/*.ts'",
-    "prepare": "npm run build",
+    "postinstall": "npm run build",
     "build": "tsc -p ."
   },
   "keywords": [
@@ -24,9 +24,7 @@
     "koa": "^2.5.2",
     "@types/koa-router": "7.0.42",
     "jwk-to-pem": "^2.0.0",
-    "prettier": "1.18.2"
-  },
-  "devDependencies": {
+    "prettier": "1.18.2",
     "@types/jwk-to-pem": "2.0.0",
     "@types/node": "^10.5.7",
     "koa-router": "^7.4.0",
@@ -34,6 +32,8 @@
     "ts-node": "^7.0.0",
     "tslint": "~5.10.0",
     "typescript": "~2.9.2"
+  },
+  "devDependencies": {
   },
   "repository": {
     "type": "git",
