@@ -2,11 +2,11 @@
  * Created by zhangsong on 2018/8/9.
  */
 
-import { ParameterizedContext } from 'koa';
+import { Context } from 'koa';
 import * as URL from 'url';
 
 export default (keycloak: any) => {
-  return function postAuth(ctx: ParameterizedContext, next: () => Promise<void>) {
+  return function postAuth(ctx: Context, next: () => Promise<void>) {
     if (!ctx.request.query.auth_callback) {
       return next();
     }

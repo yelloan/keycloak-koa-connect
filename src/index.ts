@@ -1,7 +1,3 @@
-/**
- * Created by zhangsong on 2018/8/9.
- */
-
 import Grant from './middleware/auth-utils/grant.js';
 import BearerStore from './stores/bearer-store';
 // import CookieStore from './stores/cookie-store';
@@ -16,7 +12,7 @@ import Logout from './middleware/logout';
 import Protect from './middleware/protect';
 import Setup from './middleware/setup';
 
-import { Middleware, ParameterizedContext } from 'koa';
+import { Middleware, Context } from 'koa';
 import IConfig from './interface/iconfig';
 
 /**
@@ -166,7 +162,7 @@ class Keycloak {
     return Promise.resolve();
   }
 
-  public storeGrant(grant: any, ctx: ParameterizedContext) {
+  public storeGrant(grant: any, ctx: Context) {
     if (this.stores.length < 2 || BearerStore.get(ctx)) {
       // cannot store bearer-only, and should not store if grant is from the
       // authorization header

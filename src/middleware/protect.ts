@@ -1,10 +1,10 @@
 /**
  * Created by zhangsong on 2018/8/9.
  */
-import { ParameterizedContext } from 'koa';
+import { Context } from 'koa';
 import UUID from './../uuid';
 
-function forceLogin(keycloak: any, ctx: ParameterizedContext) {
+function forceLogin(keycloak: any, ctx: Context) {
   const host = ctx.request.hostname;
   const headerHost = ctx.request.host.split(':');
   const port = headerHost[1] || '';
@@ -37,7 +37,7 @@ export default (keycloak: any, spec: any) => {
     guard = simpleGuard.bind(undefined, spec);
   }
 
-  return function protect(ctx: ParameterizedContext, next: () => Promise<void>) {
+  return function protect(ctx: Context, next: () => Promise<void>) {
     if (ctx.state.kauth && ctx.state.kauth.grant) {
       if (!guard || guard(ctx.state.kauth.grant.access_token, ctx)) {
         return next();

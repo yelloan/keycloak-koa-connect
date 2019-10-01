@@ -1,11 +1,11 @@
-import { ParameterizedContext } from 'koa';
+import { Context } from 'koa';
 
 /**
  * Created by zhangsong on 2018/8/9.
  */
 
 export default function(keycloak: any, logoutUrl: string) {
-  return async function logout(ctx: ParameterizedContext, next: () => Promise<void>) {
+  return async function logout(ctx: Context, next: () => Promise<void>) {
     if (ctx.request.url !== logoutUrl) {
       return await next();
     }

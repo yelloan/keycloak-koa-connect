@@ -20,9 +20,9 @@
 //   }
 //
 // }
-import { ParameterizedContext } from 'koa';
+import { Context } from 'koa';
 
-function adminLogout(ctx: ParameterizedContext, keycloak: any) {
+function adminLogout(ctx: Context, keycloak: any) {
   let data = '';
 
   ctx.req.on('data', (d: { toString: () => string }) => {
@@ -54,7 +54,7 @@ function adminLogout(ctx: ParameterizedContext, keycloak: any) {
   });
 }
 
-function adminNotBefore(ctx: ParameterizedContext, keycloak: any) {
+function adminNotBefore(ctx: Context, keycloak: any) {
   let data = '';
 
   ctx.req.on('data', (d: { toString: () => string }) => {
@@ -79,7 +79,7 @@ export default function(keycloak: any, adminUrl: any) {
   const urlLogout = url + 'k_logout';
   const urlNotBefore = url + 'k_push_not_before';
 
-  return async function adminRequest(ctx: ParameterizedContext, next: () => void) {
+  return async function adminRequest(ctx: Context, next: () => void) {
     switch (ctx.req.url) {
       case urlLogout:
         adminLogout(ctx, keycloak);
