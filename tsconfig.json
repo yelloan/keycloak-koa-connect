@@ -1,12 +1,20 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "target": "es6",
-    "sourceMap": true,
+    "module": "commonjs",
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": false,
+    "noUnusedLocals": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "moduleResolution": "node",
-    "types": ["node"]
+    "sourceMap": true,
+
+    "sourceRoot": "src",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules"
