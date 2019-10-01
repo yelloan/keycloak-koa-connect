@@ -1,0 +1,1 @@
+{"version":3,"file":"setup.js","sourceRoot":"/Users/pneveu/Documents/yelloan/keycloak-koa-connect/src/","sources":["middleware/setup.ts"],"names":[],"mappings":";;;;;;;;;;AAAA;;GAEG;AACH,eAAoC,GAAQ,EAAE,IAAyB;;QACrE,GAAG,CAAC,KAAK,CAAC,KAAK,GAAG,EAAE,CAAC;QACrB,MAAM,IAAI,EAAE,CAAC;IACf,CAAC;CAAA;AAHD,wBAGC"}
