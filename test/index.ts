@@ -4,7 +4,7 @@
 import * as Koa from 'koa';
 import * as KoaRouter from 'koa-router';
 import { join } from 'path';
-import KeycloakKoaConnect from '../index';
+import KeycloakKoaConnect from '../src/index';
 
 const app = new Koa();
 
@@ -13,19 +13,24 @@ const appRouter = new KoaRouter();
 
 const keycloakKoaConnect = new KeycloakKoaConnect({}, join(__dirname, '..', 'keycloak.json'));
 
-app.use(...keycloakKoaConnect.middleware());
+const middlewares = keycloakKoaConnect.middleware();
+middlewares.forEach((mid) => app.use(mid));
 koaRouter.all('*', (ctx, next) => {
   ctx.body = 'Hello Koa';
 });
 
-appRouter.use('/', async (ctx, next) => {
-  try {
-    await keycloakKoaConnect.protect()(ctx, next);
-    await next();
-  } catch (e) {
-    console.error(e);
-  }
-}, koaRouter.routes());
+appRouter.use(
+  '/',
+  async (ctx: any, next: any) => {
+    try {
+      await keycloakKoaConnect.protect()(ctx, next);
+      await next();
+    } catch (e) {
+      console.error(e);
+    }
+  },
+  koaRouter.routes(),
+);
 
 app.use(appRouter.routes());
 
