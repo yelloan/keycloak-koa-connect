@@ -37,7 +37,7 @@ export default (keycloak: any, spec: any) => {
     guard = simpleGuard.bind(undefined, spec);
   }
 
-  return function protect(ctx: Context, next: () => Promise<void>) {
+  return function protect(ctx: Context, next: () => Promise<any>) {
     if (ctx.state.kauth && ctx.state.kauth.grant) {
       if (!guard || guard(ctx.state.kauth.grant.access_token, ctx)) {
         return next();
