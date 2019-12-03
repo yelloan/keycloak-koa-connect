@@ -20,17 +20,17 @@
   "author": "algoan",
   "license": "Apache-2.0",
   "dependencies": {
-    "@types/koa": "2.0.50",
+    "@types/koa": "^2.11.0",
     "@types/koa-router": "7.0.42",
     "jwk-to-pem": "^2.0.0",
     "@types/jwk-to-pem": "2.0.0"
   },
   "devDependencies": {
-    "koa": "^2.5.2",
-    "prettier": "1.18.2",
     "@types/node": "^10.5.7",
+    "koa": "^2.11.0",
     "koa-router": "^7.4.0",
     "koa-session": "^5.8.2",
+    "prettier": "1.18.2",
     "ts-node": "^7.0.0",
     "tslint": "~5.10.0",
     "typescript": "~2.9.2"
